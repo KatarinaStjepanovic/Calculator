@@ -1,9 +1,16 @@
 const display = document.getElementById('calculating');
 
-
-const addToLocalStorage = (exp, rez) => {
-   localStorage.setItem(exp,rez);
+let lastItem = "";
+const addToLocalStorage = (exp) => {
+      lastItem = exp;
 }
+
+window.addEventListener('beforeunload', () => {
+   if( lastItem){
+    let rez = eval(lastItem);
+    localStorage.setItem(lastItem,rez);
+   }
+})
 
 const addToDisplay = (value) => {
 
@@ -60,7 +67,7 @@ newExp = newExp.replace(',', '.');
     const result = document.getElementById('result');
     result.innerText = rezultat;
       
-     addToLocalStorage(expression, rezultat);
+     addToLocalStorage(expression);
     }
   }catch(err){
     display.innerText = 'Syntax ERROR';
@@ -131,7 +138,6 @@ const eqBtn = Array.from(buttons).find( (btn) => btn.innerText === '=');
 
  for(let i = 0; i < buttons.length; i++){
    buttons[i].addEventListener('click', () => {
-      console.log('clicked');
       const value = buttons[i].innerText;
       if( !['x²', '='].includes(value)){ 
       addToDisplay(value);
@@ -150,6 +156,24 @@ const eqBtn = Array.from(buttons).find( (btn) => btn.innerText === '=');
   )
 
  }
+
+ const showRecent = () => {
+    for( let i = 0; i < localStorage.length; i++){
+     const key = localStorage.key(i);
+  const value = localStorage.getItem(key);
+  console.log(`${key}: ${value}`);
+    }
+ }
+
+ showRecent();
+
+ const btnRec = document.getElementById('btnRec');
+
+ btnRec.addEventListener('click', () => {
+   window.location.href = "../recent/recent.html";
+ })
+ 
+
 
 
 

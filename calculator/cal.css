@@ -1,0 +1,222 @@
+@import url("../colors.css");
+
+#calDisplay{
+    background-color: var(--light-color);
+    height: 30%;
+    width: 65%;
+    border-radius: 20px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#calculatingDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    width: 80%;
+    position: relative;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    
+}
+
+#visibility{
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+#calculating{
+    font-size: 35px;
+    color: var(--calculator-numbers);
+    text-align: center;
+}
+
+#calLine{
+    width: 70%;
+    position: relative;
+    top: 40%;
+    left: -5%;
+    border: 1px solid var(--calculator-lines);
+    visibility: hidden;
+}
+
+#calEq{
+    font-size: 50px;
+    color: var(--calculator-lines);
+    visibility: hidden;
+}
+
+#bottom{
+    position: relative;
+    top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    padding: 0 20% ;
+    padding-left: 15%;
+}
+
+#calculation{
+    font-size: large;
+    color: var(--calculator-numbers);
+    opacity: 0.7;
+    position: relative;
+    top: 40%;
+    right: -80%;
+    text-align: right;
+    width: fit-content;
+    transform: translateX(-100%);
+    overflow: hidden;
+    
+    
+}
+
+#result{
+      font-size: large;
+      font-weight: bold;
+      color: var(--calculator-numbers);
+      font-size: 45px;
+       overflow:auto;
+       scrollbar-width: thin;
+       scrollbar-color: var(--dark-color) var(--button-numbers);
+    
+}
+
+#unusualBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2% 20%;
+    height: 6%;
+    position: relative;
+    top: 45%;
+    left: 0;
+}
+
+.unusual{
+    background-color: var(--operation-buttons);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 15%;
+    border-radius: 20px;
+    border: none;
+    color: var(--light-color);
+    font-size: large;
+}
+
+#numberBtn{
+    position: relative;
+    height: 32%;
+    width: 40%;
+    top: 45%;
+    left: 20%;
+}
+
+.row{
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.number{
+    background: rgba(187,238,187,0.4);
+    border: none;
+    height: 85%;
+    width: 28%;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: var(--dark-color);
+    
+
+}
+
+#nula{
+    height: 100%;
+    padding: 8%;
+    border-radius: 15px;
+    width: 65%;
+    background-color: var(--calculator-numbers);
+    color: rgba(187,238,187,0.4);
+    font-size: 15px;
+    border: none;
+    margin-top: 2%;
+    font-size: 20px;
+
+}
+
+#nula:active{
+    transform: translateY(4px);
+}
+
+#comma{
+    padding: 8%;
+    margin-left: 2%;
+    background-color: #B2C8B6;
+}  
+
+#right{
+  height: 40%;
+    width: 20%;
+    position: relative;
+    left: 62%;
+    top: 14.5%;
+    padding-left: 20px;
+}
+
+.pandm{
+    border: none;
+    background-color: var(--light-color);
+    color: var(--dark-color) ;
+    width: 65%;
+    height: 25%;
+    margin-bottom: 10%;
+    margin-top: 8%;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+
+#equal{
+   border: none;
+   background-color: var(--dark-color);
+   padding: 25px;
+   height: 35%;
+   border-radius: 15px;
+   width: 65%;
+   color: var(--light-color);
+   font-size: 25px;
+}
+
+.button{
+    box-shadow: 0px 3px 5px 0px var(--dark-color);
+}
+
+.button:active{
+   transform: translateY(4px);
+}
+
+.button:hover{
+   cursor: pointer;
+}
+
+.error{
+    color: red;
+}
+
+
+
+

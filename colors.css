@@ -1,0 +1,10 @@
+:root{
+    --light-color : #DAF1DE;
+    --button-numbers : #BBEEBB;
+    --dark-color: #051F20;
+    --operation-buttons: #163832;
+    --calculator-lines: #0B2B26;
+    --calculator-numbers: #163832;
+
+    --main-font: 'Roboto Mono';
+}
