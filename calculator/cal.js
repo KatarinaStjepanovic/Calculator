@@ -67,7 +67,7 @@ newExp = newExp.replace(',', '.');
     const result = document.getElementById('result');
     result.innerText = rezultat;
       
-     addToLocalStorage(expression);
+     addToLocalStorage(newExp);
     }
   }catch(err){
     display.innerText = 'Syntax ERROR';
@@ -157,21 +157,16 @@ const eqBtn = Array.from(buttons).find( (btn) => btn.innerText === '=');
 
  }
 
- const showRecent = () => {
-    for( let i = 0; i < localStorage.length; i++){
-     const key = localStorage.key(i);
-  const value = localStorage.getItem(key);
-  console.log(`${key}: ${value}`);
-    }
- }
 
- showRecent();
 
  const btnRec = document.getElementById('btnRec');
 
  btnRec.addEventListener('click', () => {
    window.location.href = "../recent/recent.html";
  })
+
+
+
  
 
 

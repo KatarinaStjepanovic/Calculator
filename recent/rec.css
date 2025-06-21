@@ -6,8 +6,11 @@
     border-radius: 20px;
     position: absolute;
     top: 15%;
-    left: 50%;
+    left: 52%;
     transform: translateX(-50%);
+    padding-right: 20px;
+    overflow-y:hidden;
+     scrollbar-color: var(--dark-color) var(--button-numbers);
 }
 
 .rec{
@@ -17,7 +20,8 @@
     margin-top: 5%;
     border-radius: 20px;
     transition: all 0.5s ease-in-out;
-
+    position: relative;
+    overflow: hidden;
 
 }
 
@@ -28,4 +32,65 @@
 .first{
     margin-top: 0;
 }
+
+.calculation{
+    font-size: large;
+    text-align: right;
+    width: fit-content;
+    position: absolute;
+    top: 45%;
+    right: 20%;
+    transform: translateX(-20%);
+    transform: translateY(-45%);
+    font-size: 15px;
+    opacity: 0.7;   
+    color: var(--calculator-numbers);
+}
+
+.hrLine{
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%,-50%);
+    color: var(--button-numbers);
+    border: 1px solid var(--dark-color);
+}
+
+.equal{
+   font-size: 50px;
+    color: var(--calculator-lines);
+    position: absolute;
+    left: 20%;
+    top: 85%;
+    transform: translate(-20%, -85%);
+    width: fit-content;
+}
+
+.calculated{
+    position: absolute;
+    top: 85%;
+    left: 75%;
+    transform: translate(-75%, -85%);
+    width: fit-content;
+    text-align: right;
+    font-size: 40px;
+    max-width: 30%;
+    overflow: hidden;
+}
+
+#xBtn{
+    font-size: 15px;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+#recDiv{
+    overflow-y: hidden;
+}
+
+
+
+
 
