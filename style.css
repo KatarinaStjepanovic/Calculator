@@ -1,5 +1,17 @@
 @import url("./colors.css");
 
+@media only screen and (max-width: 440px) {
+   #calDiv{
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+   }
+    #calculator {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
 *{
    font-family: var(--main-font);
    font-weight: bold;
