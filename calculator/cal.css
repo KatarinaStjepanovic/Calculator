@@ -1,5 +1,10 @@
 @import url("../colors.css");
 
+*{
+    box-sizing: border-box;
+}
+
+
 #calDisplay{
     background-color: var(--light-color);
     height: 30%;
@@ -32,7 +37,7 @@
 }
 
 #calculating{
-    font-size: 35px;
+    font-size: 220%;
     color: var(--calculator-numbers);
     text-align: center;
 }
@@ -47,7 +52,7 @@
 }
 
 #calEq{
-    font-size: 50px;
+    font-size:  350%;
     color: var(--calculator-lines);
     visibility: hidden;
 }
@@ -78,10 +83,9 @@
 }
 
 #result{
-      font-size: large;
       font-weight: bold;
       color: var(--calculator-numbers);
-      font-size: 45px;
+      font-size: 300%;
        overflow:auto;
        scrollbar-width: thin;
        scrollbar-color: var(--dark-color) var(--button-numbers);
@@ -133,7 +137,7 @@
     height: 85%;
     width: 28%;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 120%;
     font-weight: bold;
     padding-left: 5px;
     padding-right: 5px;
@@ -143,16 +147,15 @@
 }
 
 #nula{
+      width: 55%;
+    padding: 4%;
     height: 100%;
-    padding: 8%;
     border-radius: 15px;
-    width: 65%;
     background-color: var(--calculator-numbers);
     color: rgba(187,238,187,0.4);
-    font-size: 15px;
     border: none;
     margin-top: 2%;
-    font-size: 20px;
+    font-size: 150%;
 
 }
 
@@ -161,18 +164,30 @@
 }
 
 #comma{
-    padding: 8%;
-    margin-left: 2%;
+     width: 35%;
+    padding: 4%;
+    margin-left: 3%;
     background-color: #B2C8B6;
-}  
+} 
+
+#row4{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 #right{
   height: 40%;
     width: 20%;
     position: relative;
-    left: 62%;
-    top: 14.5%;
+    left: 60%;
+    top: 13%;
     padding-left: 20px;
+    display: grid;
+    grid-row: auto auto auto;
+    row-gap: 4%;
+    align-items: center;
+
 }
 
 .pandm{
@@ -185,7 +200,7 @@
     margin-top: 8%;
     border-radius: 15px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 150%;
 }
 
 
@@ -198,11 +213,29 @@
    border-radius: 15px;
    width: 65%;
    color: var(--light-color);
-   font-size: 25px;
+   font-size: 150%;
+   height: 100%;
+   margin-top: 4%;
+    margin: auto;
+
+}
+
+#plus{
+    height: 100%;
+    margin: auto;
+}
+
+#minus{
+    height: 100%;
+    margin: auto;
+
 }
 
 .button{
     box-shadow: 0px 3px 5px 0px var(--dark-color);
+       display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .button:active{
@@ -216,6 +249,7 @@
 .error{
     color: red;
 }
+
 
 
 
