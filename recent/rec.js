@@ -77,9 +77,9 @@ showRecents();
 
 
  const btnCal = document.getElementById('btnCal');
-
+ 
  btnCal.addEventListener('click', () => {
-   window.location.href = "../calculator/calculator.html";
+   window.location.href = "../index.html";
  })
  
 

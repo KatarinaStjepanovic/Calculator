@@ -114,6 +114,27 @@ body{
     cursor: auto;
 }
 
+#turnDevice{
+   position:fixed;
+  top: 0;
+  left:0;
+  height:100%;
+  width:100%;
+  display: none;
+}
+
+
+@media (orientation: landscape) and (max-width: 1000px) {
+    #turnDevice{
+         background-image:url("./turnDevice.png");
+  background-size:cover;
+  display: block;
+  z-index: 9999;
+    }
+    body{
+        background-color: beige;
+    }
+ }
 
 
 
