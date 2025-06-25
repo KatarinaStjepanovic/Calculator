@@ -9,11 +9,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/627dc2caf9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-        <div id="turnDevice"></div>
+ 
+    <div id="turnDevice"></div>
+   <div id="sideBar">
+
+   </div>
+        
    <div id="calDiv"></div>
     <div id="calculator">
+        <div id="leftSide">
+                <div id="sidebarX"><i class="fa-solid fa-x fa-lg" style="color: #051f20;"></i></div>
+            <div id="sidebarButtons">
+            <button class="btnSidebar">sin</button>
+            <button class="btnSidebar">cos</button>
+            <button class="btnSidebar">tan</button>
+            <button class="btnSidebar">f⁻¹</button>
+            <button class="btnSidebar">log</button>
+            <button class="btnSidebar">e</button>
+            <button class="btnSidebar">xʸ</button>
+            <button class="btnSidebar">π</button>
+            <button class="btnSidebar">x!</button>
+
+            </div>
+            
+        </div>
+        <div id="rightSide">
+            <div id="dots">
+            <div class="dot">.</div>
+            <div class="dot">.</div>
+            <div class="dot">.</div></div>
             <div id="buttons">
              <button id="btnCal" class="buttonCal clicked">Calculator</button>
              <button id="btnRec" class="buttonCal">Recent</button>
@@ -75,12 +102,13 @@
                 <button id="minus" class="pandm button">-</button>
                 <button id="equal" class="button">=</button>
             </div>
+            </div>
      
           
 
 
     </div>
-  <script src="./calculator/cal.js"></script>
+  <script src="./calculator/cal.js" type="module"></script>
     
 </body>
 </html>

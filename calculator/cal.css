@@ -4,13 +4,155 @@
     box-sizing: border-box;
 }
 
+.gridCalculator{
+    display: flex;
+}
+
+#dots{
+    height: 100px;
+    width: fit-content;
+    z-index: 999;
+    position: absolute;
+    top: 60%;
+    left: 8%;
+}
+
+#dots:hover{
+    cursor:pointer;
+}
+
+.dot{
+    color: var(--dark-color);
+    line-height: 40%;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+
+
+
+#rightSide{
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.btnSidebar{
+   border: none;
+   background-color: var(--operation-buttons);
+   padding: 2%;
+   display: block;
+   border-radius: 10px;
+   height: 10%;
+   width: 70%;
+   margin-bottom: 8%;
+   color: var(--light-color);
+   font-size: 100%;
+   position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.btnSidebar:hover{
+    border: 5px solid var(--operation-buttons);
+    color: var(--operation-buttons);
+    background-color: transparent;
+}
+
+.btnSidebar:active{
+    transform: translateX(-50%) translateY(4px);
+}
+
+#sidebarButtons{
+    position: relative;
+    top: 15%;
+    height: 70%;
+}
+
+#sidebarX{
+    position: relative;
+    left: 20%;
+    top: 5%;
+}
+
+#sidebarX:hover{
+    cursor: pointer;
+}
+
+@keyframes showIngSidebar {
+    0%{
+        font-size: 0;
+       width: 10%;
+       height: 100%;
+       opacity: 0;
+    }
+    50%{
+        opacity: 0.7;
+    }100%{
+            width: 30%;
+        height: 100%;
+        font-size: 100%;
+    }
+}
+
+@keyframes removingSidebar {
+    0%{
+        width: 30%;
+        height: 100%;
+        font-size: 100%;
+        opacity: 1;
+    }
+
+    50%{
+        font-size: 0px;
+        opacity: 0.7;
+    }
+    100%{
+       width: 0%;
+       height: 100%;
+       opacity: 0;
+    }
+}
+
+
+#leftSide{  
+    width: 30%;  
+    background-color: var(--light-color);
+   border-radius: 50px 0px 0px 50px;
+  visibility: hidden;
+  
+}
+
+.showSidebar{
+    visibility: visible !important;
+     height: 100%;
+    width: 30%;
+  animation: showIngSidebar 1s ease-in-out;
+
+}
+
+.removingSidebar{
+    animation: removingSidebar 1s ease-in-out;
+     font-size: 0px;
+        border-radius: 200px 0px 0px 200px;
+
+}
+
+
+
+
 
 #calDisplay{
     background-color: var(--light-color);
     height: 30%;
     width: 65%;
     border-radius: 20px;
-    position: absolute;
+    position: relative;
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
@@ -41,6 +183,33 @@
     color: var(--calculator-numbers);
     text-align: center;
 }
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+    top: 0;
+    right: 0;
+  }
+
+  100% {
+    opacity: 0.7;
+    top: 40%;
+    right: -80%;
+    transform: translateX(-100%);
+    text-align: right;
+    width: fit-content;
+    overflow: hidden;
+    font-size: large;
+    color: var(--calculator-numbers);
+  }
+}
+
+.calculatedAnim{
+    animation: slide 1s ease forwards ;
+    position: absolute;
+}
+
 
 #calLine{
     width: 70%;
@@ -89,6 +258,7 @@
        overflow:auto;
        scrollbar-width: thin;
        scrollbar-color: var(--dark-color) var(--button-numbers);
+       margin-left: 10%;
     
 }
 
@@ -99,7 +269,7 @@
     margin: 2% 20%;
     height: 6%;
     position: relative;
-    top: 45%;
+    top: 15%;
     left: 0;
 }
 
@@ -120,8 +290,8 @@
     position: relative;
     height: 32%;
     width: 40%;
-    top: 45%;
-    left: 20%;
+    top: 15%;
+    left: 22%;
 }
 
 .row{
@@ -181,7 +351,7 @@
     width: 20%;
     position: relative;
     left: 60%;
-    top: 13%;
+    top: -16%;
     padding-left: 20px;
     display: grid;
     grid-row: auto auto auto;
@@ -209,7 +379,6 @@
    border: none;
    background-color: var(--dark-color);
    padding: 25px;
-   height: 35%;
    border-radius: 15px;
    width: 65%;
    color: var(--light-color);

@@ -1,3 +1,11 @@
+import { getNewExpression  } from "../newExp.js";
+
+ const btnCal = document.getElementById('btnCal');
+ 
+ btnCal.addEventListener('click', () => {
+   window.location.href = "../index.html";
+ })
+
 let recents = [];
 
 class recentDiv{
@@ -17,7 +25,12 @@ class recentDiv{
       equal.classList.add("equal");
       const calculated = document.createElement('div');
       calculated.classList.add('calculated');
-      calculated.innerText = eval(key);
+      let newE = getNewExpression(key);
+      if( eval(newE)){
+        calculated.innerText = eval(newE);
+      }else{
+        calculated.innerText = "Error";
+      }
       const x = document.createElement('i');
       x.classList = "fa-solid fa-xmark";
       x.id = "xBtn";
@@ -49,7 +62,6 @@ const getRecents = () => {
       recents.push({key : key, value : value});
      }
 
-     console.log(recents);
 }
 
 
@@ -59,27 +71,33 @@ const recDiv = document.getElementById('recents');
 const showRecents = () => {
     recents = [];
     getRecents();
-    if( recents.length > 3){
-          recDiv.style.overflowY = "scroll";
-     }else{
-      recDiv.style.overflowY = "hidden";
-     }
-     recents.forEach( ( rec ) => {
-       const createdDiv =  new recentDiv().fullDiv(rec.key);
-       recDiv.appendChild(createdDiv);
-     
+    if( recents.length === 0){
+        const text = document.createElement('div');
+        text.id = "noRecents";
+        text.innerText = "No recent calculations";
+        recDiv.appendChild(text);
+    }else{
+      document.getElementById('noRecents')?.remove();
+    }
 
-        
-     })
+     if( recents.length > 3){
+        recDiv.style.overflowY = "scroll";
+     }else{
+        recDiv.style.overflowY = "hidden";
+     }
+   
+     for( let i = 0; i < recents.length; i++){
+      const createdDiv = new recentDiv().fullDiv(recents[i].key);
+      recDiv.appendChild(createdDiv);
+     }
 }
 
-showRecents();
+document.addEventListener('DOMContentLoaded', () => {
+     showRecents();
+})
 
 
- const btnCal = document.getElementById('btnCal');
- 
- btnCal.addEventListener('click', () => {
-   window.location.href = "../index.html";
- })
+
+
  
 

@@ -10,6 +10,9 @@
         width: 100vw !important;
         height: 100vh !important ;
     }
+    #leftSide{
+        border-radius: 0;
+    }
 
    
 }
@@ -29,6 +32,13 @@
    #right{
     width: 30%;
    }
+   #dots{
+    position: absolute;
+    left: 0%;
+   }
+   #leftSide{
+        border-radius: 0;
+    }
 }
 
 
@@ -76,16 +86,23 @@ body{
 
 #btnCal{
    left: 0%;
-   top: 0;  
+   top: 0; 
+    width: 55%;
 }
 
 #btnRec{
     right: 0%;
     top: 0;
+    width: 55%;
+
+}
+
+#buttons{
+    position: relative;
 }
 
 .buttonCal{
-    height:35px ;
+    height:35px;
     width: 55%;
     border: none;
     border-radius: 20px;

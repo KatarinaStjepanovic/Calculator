@@ -1,3 +1,5 @@
+import {  getNewExpression} from "../newExp.js";
+
 const display = document.getElementById('calculating');
 
 let lastItem = "";
@@ -7,17 +9,20 @@ const addToLocalStorage = (exp) => {
 
 window.addEventListener('beforeunload', () => {
    if( lastItem){
-    let rez = eval(lastItem);
+    let rez = eval(getNewExpression(lastItem));
     localStorage.setItem(lastItem,rez);
    }
 })
 
 const addToDisplay = (value) => {
-
+  console.log('adding');
   if(display.classList.contains('error')){
     display.classList.remove('error');
     display.innerText = '';
   }
+
+    
+  
   const result = document.getElementById('result');
 
     if(result.innerText != ''){
@@ -29,31 +34,50 @@ const addToDisplay = (value) => {
         result.innerText = "";
        
     }
+    if( fClicked && ['sin', 'cos', 'tan'].includes(value)){
+     switch(value){
+      case 'sin':  display.innerText = "sin⁻¹("; break;
+      case 'cos': display.innerText = "cos⁻¹("; break;
+      case 'tan': display.innerText = "tan⁻¹("; break;
+      default:
+      fClicked = false;
+    }
+    fClicked = false;
+    return;
+  }else if( ['sin', 'cos', 'tan', 'xʸ', 'x!'].includes(value)){
+    if (['sin', 'cos', 'tan'].includes(value)) {
+        display.innerText += value + '(';
+    } else if (value === 'xʸ') {
+        display.innerText += "^";
+    } else if (value === 'x!') {
+        display.innerText += '!';
+    }
+    return;
+}
+
     display.innerText += value;
 }
 
+
 const calculate = () => {
-    let expression = display.innerText;
-   let rezultat = 0, newExp = expression;
-   newExp = newExp.replace(/(\d+)²/g, (match, number) => {
-    return `(${number}*${number})`;
-});
-newExp = newExp.replace(/√(\d+)/g, (match, number) => {
-    return Math.sqrt(number);
-});
+
+   let expression = display.innerText;
+   let rezultat = 0, newExp = getNewExpression(expression);
+    const calculated = document.getElementById('calculating');
 
 
-newExp = newExp.replace('%', '/');
-newExp = newExp.replace(',', '.');
-       
+
   try{
     if(newExp && eval(newExp)){
       display.style.visibility = 'hidden';
-      rezultat = eval(newExp)
-         const vis = document.getElementById('visibility');
-      vis.style.visibility = 'visible';
+      rezultat = eval(newExp);
+  calculated.classList.add('calculatedAnim');
+        setTimeout( () => {
+           const vis = document.getElementById('visibility');
+          vis.style.visibility = 'visible';
         const calDiv = document.getElementById('calculatingDiv');
-   calDiv.style.visibility = 'hidden';
+        calDiv.style.visibility = 'hidden';
+        },1000);
 
     const calculatation = document.getElementById('calculation');
     calculatation.innerText = expression;
@@ -66,13 +90,18 @@ newExp = newExp.replace(',', '.');
 
     const result = document.getElementById('result');
     result.innerText = rezultat;
-      
-     addToLocalStorage(newExp);
+
+     addToLocalStorage(expression);
+    }else{
+      console.error("Error while calculating!");
     }
   }catch(err){
     display.innerText = 'Syntax ERROR';
     display.classList.add('error');
   }
+
+  calculated.classList.remove('calculatedAnim');
+
   
 
 }
@@ -105,7 +134,6 @@ const reset = () => {
     const result = document.getElementById('result');
     result.innerText = "";
     display.style.visibility = 'visible';
-   console.log("reset")
 }
 
 
@@ -128,7 +156,6 @@ document.addEventListener('keydown', (event) => {
 
 
 const buttons = document.querySelectorAll('.button');
-console.log(buttons);
 
 const eqBtn = Array.from(buttons).find( (btn) => btn.innerText === '=');
 
@@ -156,6 +183,63 @@ const eqBtn = Array.from(buttons).find( (btn) => btn.innerText === '=');
   )
 
  }
+
+ /* sidebar*/
+
+ const dots = document.getElementById('dots');
+ const gridCal = document.getElementById('calculator');
+ const rightSide = document.getElementById('rightSide');
+ const sidebar = document.getElementById('leftSide');
+
+
+
+ dots.addEventListener('click', () => {
+  if( result.innerText === ""){
+    dots.style.visibility = "hidden";
+   sidebar.classList.remove('removingSidebar');
+ 
+   gridCal.classList.add('gridCalculator');
+   rightSide.style.position = "relative";
+   sidebar.classList.add('showSidebar');
+  }
+   
+ })
+const removeSidebar = () => {
+  sidebar.classList.add('removingSidebar');
+    setTimeout(() => {
+      dots.style.visibility = "visible";
+      gridCal.classList.remove('gridCalculator');
+   rightSide.style.position = "absolute";
+   sidebar.classList.remove('showSidebar');
+    }, 850)
+}
+
+ const xButton = document.getElementById('sidebarX');
+
+ xButton.addEventListener('click', () => {
+   removeSidebar();
+
+ })
+
+ const moreFuncBtns = document.getElementsByClassName('btnSidebar');
+ let fClicked = false;
+ 
+
+ for( let i = 0; i < moreFuncBtns.length; i++){
+ 
+     moreFuncBtns[i].addEventListener('click', () => {
+    if( moreFuncBtns[i].innerText == "f⁻¹"){
+    fClicked = true;
+    }else{
+      addToDisplay(moreFuncBtns[i].innerText);
+      removeSidebar();
+    }
+      
+ })
+  }
+
+ 
+
 
 
 
