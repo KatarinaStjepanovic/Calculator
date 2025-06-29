@@ -1,5 +1,15 @@
 import {  getNewExpression} from "../newExp.js";
 
+document.addEventListener('DOMContentLoaded', () => {
+    if( localStorage.getItem('recentClick')){
+      const value = localStorage.getItem('recentClick');
+      console.log(value);
+      display.innerText = value;
+     calculate(localStorage.getItem('recentClick'))
+      localStorage.removeItem('recentClick');
+    }
+})
+
 const display = document.getElementById('calculating');
 
 let lastItem = "";
@@ -15,7 +25,6 @@ window.addEventListener('beforeunload', () => {
 })
 
 const addToDisplay = (value) => {
-  console.log('adding');
   if(display.classList.contains('error')){
     display.classList.remove('error');
     display.innerText = '';
@@ -44,8 +53,8 @@ const addToDisplay = (value) => {
     }
     fClicked = false;
     return;
-  }else if( ['sin', 'cos', 'tan', 'xʸ', 'x!'].includes(value)){
-    if (['sin', 'cos', 'tan'].includes(value)) {
+  }else if( ['sin', 'cos', 'tan', 'xʸ', 'x!', 'log'].includes(value)){
+    if (['sin', 'cos', 'tan', 'log'].includes(value)) {
         display.innerText += value + '(';
     } else if (value === 'xʸ') {
         display.innerText += "^";
@@ -66,18 +75,20 @@ const calculate = () => {
     const calculated = document.getElementById('calculating');
 
 
-
   try{
     if(newExp && eval(newExp)){
-      display.style.visibility = 'hidden';
+      
+ calculated.classList.add('calculatedAnim');
       rezultat = eval(newExp);
-  calculated.classList.add('calculatedAnim');
         setTimeout( () => {
+      display.style.visibility = 'hidden';
            const vis = document.getElementById('visibility');
           vis.style.visibility = 'visible';
         const calDiv = document.getElementById('calculatingDiv');
         calDiv.style.visibility = 'hidden';
-        },1000);
+       calculated.classList.remove('calculatedAnim');
+
+        },500);
 
     const calculatation = document.getElementById('calculation');
     calculatation.innerText = expression;
@@ -92,6 +103,7 @@ const calculate = () => {
     result.innerText = rezultat;
 
      addToLocalStorage(expression);
+
     }else{
       console.error("Error while calculating!");
     }
@@ -100,7 +112,7 @@ const calculate = () => {
     display.classList.add('error');
   }
 
-  calculated.classList.remove('calculatedAnim');
+
 
   
 

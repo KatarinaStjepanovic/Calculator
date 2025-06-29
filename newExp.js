@@ -1,6 +1,6 @@
 
 const getNewExpression = (expression) => {
-  let newExp = expression;
+  let newExp = String(expression);
 
   
 newExp = newExp.replace('%', '/');
@@ -11,7 +11,7 @@ newExp = newExp.replace(/e/g, () => {
   });
 
 newExp = newExp.replace(/π/g, () => {
-  return  3.14159;
+  return 3.14159;
   });
 
    newExp = newExp.replace(/(\d+(\.\d+)?)²/g, (match, number) => {
@@ -33,7 +33,7 @@ newExp = newExp.replace(/tan\((\d+(\.\d+)?)\)/g, (match, number) => {
   return Math.tan(number);
 })
 
-newExp = newExp.replace(/log\(\d+(\.\d+)?\)/g, (match, number) => {
+newExp = newExp.replace(/log\((\d+(\.\d+)?)\)/g, (match, number) => {
     return Math.log(number);
 })
 
@@ -61,6 +61,10 @@ const factorial = (number) => {
       
     }
 }
+
+newExp = newExp.replace(/(\d+(\.\d+)?)\!/g, (match,number) => {
+    return factorial(number);
+})
 
 newExp = newExp.replace(/(\d+(\.\d+)?)\^(\d+(\.\d+)?)/g, (match, base, _, exponent) => {
     return Math.pow(Number(base), Number(exponent));

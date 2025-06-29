@@ -25,7 +25,7 @@ class recentDiv{
       equal.classList.add("equal");
       const calculated = document.createElement('div');
       calculated.classList.add('calculated');
-      let newE = getNewExpression(key);
+      const newE = getNewExpression(key);
       if( eval(newE)){
         calculated.innerText = eval(newE);
       }else{
@@ -92,9 +92,28 @@ const showRecents = () => {
      }
 }
 
+const setClicked = (div) => {
+      const calculation = div.querySelector('.calculation').innerText;
+      localStorage.setItem('recentClick', eval(getNewExpression(calculation)));
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
      showRecents();
+     const allDivs = document.querySelectorAll('.rec');
+
+console.log(allDivs)
+
+for(  let i = 0;  i < allDivs.length; i++){
+    allDivs[i].addEventListener('click', () => {
+      setClicked(allDivs[i]);
+      window.location.href = "../index.html";
+    })
+  }
 })
+
+
+
 
 
 
