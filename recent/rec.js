@@ -99,18 +99,20 @@ const setClicked = (div) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-     showRecents();
-     const allDivs = document.querySelectorAll('.rec');
+  showRecents();
 
-console.log(allDivs)
+  recDiv.addEventListener('click', (e) => {
+    const target = e.target;
 
-for(  let i = 0;  i < allDivs.length; i++){
-    allDivs[i].addEventListener('click', () => {
-      setClicked(allDivs[i]);
+    if (target.closest('#xBtn')) return;
+
+    const clickedRec = target.closest('.rec');
+    if (clickedRec) {
+      setClicked(clickedRec);
       window.location.href = "../index.html";
-    })
-  }
-})
+    }
+  });
+});
 
 
 
