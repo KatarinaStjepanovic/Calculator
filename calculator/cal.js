@@ -258,7 +258,7 @@ const removeSidebar = () => {
  const btnRec = document.getElementById('btnRec');
 
  btnRec.addEventListener('click', () => {
-   window.location.href = "/recent/recent.html";
+   window.location.href = "/Calculator/recent/recent.html";
  })
 
  const btnBackSp = document.getElementById('backspace');
