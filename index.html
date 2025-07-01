@@ -17,7 +17,7 @@
 <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
- 
+    <button id="installBtn" style="display: none;">📲 Instaliraj aplikaciju</button>
     <div id="turnDevice"></div>
    <div id="sideBar">
 
@@ -76,6 +76,8 @@
                 <button class="unusual button">√</button>
                 <button class="unusual button">(</button>
                 <button class="unusual button">)</button>
+                <button class="unusual button" id="backspace"><i class="fa-solid fa-arrow-left" style="color: #daf1de;"></i></button>
+
             </div>
             <div id="numberBtn">
                 <div id="row1" class="row">
@@ -108,11 +110,14 @@
                 <button id="equal" class="button">=</button>
             </div>
             </div>
+
      
           
 
 
     </div>
+
+      
   <script src="./calculator/cal.js" type="module"></script>
   <script>
   if ('serviceWorker' in navigator) {

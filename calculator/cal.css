@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+#installBtn{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
 .gridCalculator{
     display: flex;
 }
@@ -281,6 +288,10 @@
     position: relative;
     top: 15%;
     left: 0;
+}
+
+#backspace{
+    display: none;
 }
 
 .unusual{

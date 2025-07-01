@@ -39,6 +39,13 @@
    #leftSide{
         border-radius: 0;
     }
+    #backspace{
+    display: block;
+  }
+  .unusual{
+    margin-right: 2%;
+  }
+
 }
 
 
