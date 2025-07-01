@@ -1,4 +1,4 @@
-import {  getNewExpression} from "/newExp.js";
+import {  getNewExpression} from "/Calculator/newExp.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     if( localStorage.getItem('recentClick')){
