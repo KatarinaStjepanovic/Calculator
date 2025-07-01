@@ -1,9 +1,9 @@
-import { getNewExpression  } from "/newExp.js";
+import { getNewExpression  } from "/Calculator/newExp.js";
 
  const btnCal = document.getElementById('btnCal');
  
  btnCal.addEventListener('click', () => {
-   window.location.href = "/index.html";
+   window.location.href = "/Calculator/index.html";
  })
 
 let recents = [];
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickedRec = target.closest('.rec');
     if (clickedRec) {
       setClicked(clickedRec);
-      window.location.href = "/index.html";
+      window.location.href = "/Calculator/index.html";
     }
   });
 });

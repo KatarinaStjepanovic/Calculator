@@ -2,39 +2,31 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('v1').then((cache) => {
       return cache.addAll([
-        '/index.html',
-        '/style.css',
-        '/colors.css',
-        '/newExp.js',
-        '/service-worker.js',
+        '/Calculator/index.html',
+        '/Calculator/style.css',
+        '/Calculator/colors.css',
+        '/Calculator/newExp.js',
+        '/Calculator/service-worker.js',
 
-        '/calculator/cal.css',
-        '/calculator/cal.js',
+        '/Calculator/calculator/cal.css',
+        '/Calculator/calculator/cal.js',
 
-        '/recent/rec.js',
-        '/recent/rec.css',
+        '/Calculator/recent/rec.js',
+        '/Calculator/recent/rec.css',
 
-        '/favicon.ico',
-        '/favicon-96x96.png',
-        '/favicon.svg',
-        '/apple-touch-icon.png',
+        '/Calculator/favicon.ico',
+        '/Calculator/favicon-96x96.png',
+        '/Calculator/favicon.svg',
+        '/Calculator/apple-touch-icon.png',
 
-        '/web-app-manifest-192x192.png',
-        '/web-app-manifest-512x512.png',
-        '/site.webmanifest',
+        '/Calculator/web-app-manifest-192x192.png',
+        '/Calculator/web-app-manifest-512x512.png',
+        '/Calculator/site.webmanifest',
 
-        '/turnDevice.png'
+        '/Calculator/turnDevice.png'
       ]);
     }).catch((err) => {
       console.error('Greška pri keširanju:', err);
     })
-  );
-});
-
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) =>
-      response || fetch(event.request)
-    )
   );
 });
