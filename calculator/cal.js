@@ -1,4 +1,4 @@
-import {  getNewExpression} from "../newExp.js";
+import {  getNewExpression} from "/newExp.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     if( localStorage.getItem('recentClick')){
@@ -258,7 +258,7 @@ const removeSidebar = () => {
  const btnRec = document.getElementById('btnRec');
 
  btnRec.addEventListener('click', () => {
-   window.location.href = "../recent/recent.html";
+   window.location.href = "/recent/recent.html";
  })
 
  const btnBackSp = document.getElementById('backspace');
