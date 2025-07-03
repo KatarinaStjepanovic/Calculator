@@ -45,9 +45,9 @@ const addToDisplay = (value) => {
     }
     if( fClicked && ['sin', 'cos', 'tan'].includes(value)){
      switch(value){
-      case 'sin':  display.innerText = "sin⁻¹("; break;
-      case 'cos': display.innerText = "cos⁻¹("; break;
-      case 'tan': display.innerText = "tan⁻¹("; break;
+      case 'sin':  display.innerText += "sin⁻¹("; break;
+      case 'cos': display.innerText += "cos⁻¹("; break;
+      case 'tan': display.innerText += "tan⁻¹("; break;
       default:
       fClicked = false;
     }
